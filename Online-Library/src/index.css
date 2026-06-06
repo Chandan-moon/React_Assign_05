@@ -4,6 +4,7 @@
 
 
 
+
 /* --- Navigation Bar --- */
 .heading {
   display: flex;
@@ -23,5 +24,106 @@
   
   display: flex;
   gap: 25px;
+
+}
+
+
+
+
+
+.home-heading {
+
+/* border: 1px solid black; */
+text-align: center;
+background-color:#D0DAFF;
+color: #1E1B4B;
+
+font-family: 'Segoe UI';
+
+border-radius: 20px;
+width: 55%;
+margin-left: 20%;
+margin-top: 20px;
+
+padding: 10px;
+
+height: 150px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+
+.home-subheading {
+
+font-family: 'Segoe UI';
+margin-top: 40px;
+margin-left: 20%;
+
+}
+
+.home-title {
+
+  margin-left: 22%;
+  margin-top: 50px;
+ 
+
+}
+
+.home-title button {
+
+  padding: 7px;
+  border-radius: 5px;
+  margin-right: 20px;
+  
+}
+
+
+.booklist-card {
+
+display: flex;
+
+flex-wrap: wrap;
+
+}
+
+
+.book-card {
+
+width: 350px;
+height: 260px;
+
+border: 1px solid green;
+border-radius: 20px;
+
+margin: 20px;
+
+
+padding: 10px;
+padding-left: 30px;
+
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+transition: all 0.3s;
+
+}
+
+
+.book-card:hover {
+
+  transform: scale(1.04);
+}
+
+
+
+.card-cat {
+
+
+border-radius: 7px;
+width: 30%;
+padding: 5px;
+padding-left: 10px;
+background-color: #F3F4F6;
+color: rgb(226, 103, 76);
+font-family: 'Segoe UI';
 
 }

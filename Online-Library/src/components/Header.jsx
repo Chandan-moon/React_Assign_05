@@ -1,9 +1,28 @@
 
 import { Link } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
+import { useDispatch } from "react-redux";
+import AddBook from "./AddBook";
+import { addBook, removeBook } from "../store/bookSlice";
+
 
 
 function Header() {
+
+
+const bookItems = useSelector((store) => store.library.books);  
+
+
+const dispatch = useDispatch();
+
+
+//  console.log(bookItems[0].title);
+
+
+
+
 
 
     return (
@@ -23,8 +42,11 @@ function Header() {
                     <li>BrowseBook</li>
                 </Link>
 
+                 {/* <li>Cart{bookItems.length}</li> */}
+
 
             </div>
+
 
         </div>
 

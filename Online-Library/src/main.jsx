@@ -12,6 +12,8 @@ import AddBook from './components/AddBook.jsx';
 import BrowseBook from './components/BrowseBook.jsx';
 import BookList from './components/BookList.jsx';
 
+import Home from './components/Home.jsx';
+
 
 const appRouter = createBrowserRouter([
 
@@ -23,12 +25,10 @@ const appRouter = createBrowserRouter([
 
     children: [
 
-
-
       {
 
-        path: "/",
-        element: <BookList />
+        path: "/home",
+        element: <Home />
 
       },
 
