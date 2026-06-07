@@ -3,6 +3,7 @@
 import { useSelector } from "react-redux";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -25,6 +26,9 @@ function Home() {
     const fliterSciFiction = bookItems.filter(data => data.category == "Sci-Fi");
 
 
+    const [show, setShow] = useState(false);
+
+
 
 
     return (
@@ -40,34 +44,42 @@ function Home() {
 
             <h2 className="home-subheading">Browse by Category</h2>
 
-            <div className="home-title">
+            <div className="home-title" onClick={() => setShow(true)}>
 
                 <button onClick={() => setFetchData(fliterFiction)}>Fiction</button>
                 <button onClick={() => setFetchData(fliterNonFiction)}>Non-Fiction</button>
                 <button onClick={() => setFetchData(fliterSciFiction)}>Sci-Fi</button>
                 <button onClick={() => setFetchData(bookItems)}>All Books</button>
 
+                <h2 className="home-popular"
+
+                    style={!show ? { display: "block" } : { display: "none" }}
+
+                >
+
+                    Popular Books</h2>
+
                 <div className="booklist-card">
 
                     {
-
-
                         fetchData.map((book) => (
 
-                            <div className="book-card" key={book.id}>
+                            <Link to={`/book/${book.id}`} key={book.id} className="link-line">
 
-                                <h2>{book.title}</h2>
-                                <h4>{book.author}</h4>
-                                <h3 className="card-cat">{book.category}</h3>
-                                <p>{book.description.slice(0, 70)}</p>
-                                <h2>⭐{book.rating}</h2>
+                                <div className="book-card" key={book.id}>
+
+                                    <h2>{book.title}</h2>
+                                    <h4>{book.author}</h4>
+                                    <h3 className="card-cat">{book.category}</h3>
+                                    <p>{book.description.slice(0, 70)}</p>
+                                    <h2>⭐{book.rating}</h2>
 
 
-                            </div>
+                                </div>
 
-                        ))
+                            </Link>
 
-                    }
+                        ))}
 
                 </div>
 
@@ -82,3 +94,12 @@ function Home() {
 }
 
 export default Home;
+
+
+
+
+
+
+
+
+// style={fetchData == filterRating ? { display: "block" } : { display: "none" }}

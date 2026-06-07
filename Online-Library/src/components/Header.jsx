@@ -38,7 +38,7 @@ const dispatch = useDispatch();
                 <Link to="/cart">
                     <li>Add Books</li>
                 </Link>
-                <Link to="/bookBrowse">
+                <Link to="/books/all">
                     <li>BrowseBook</li>
                 </Link>
 

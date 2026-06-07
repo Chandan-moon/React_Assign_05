@@ -10,7 +10,7 @@ import NotFound from './components/NotFound.jsx';
 import BookDetails from './components/BookDetails.jsx';
 import AddBook from './components/AddBook.jsx';
 import BrowseBook from './components/BrowseBook.jsx';
-import BookList from './components/BookList.jsx';
+
 
 import Home from './components/Home.jsx';
 
@@ -41,14 +41,14 @@ const appRouter = createBrowserRouter([
 
       {
 
-        path: "/book",
+        path: "/book/:id",
         element: <BookDetails />
 
       },
 
       {
 
-        path: "/bookBrowse",
+        path: "/books/all",
         element: <BrowseBook />
 
       }
