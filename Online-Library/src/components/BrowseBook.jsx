@@ -5,7 +5,12 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
-import { useState } from "react";
+import { use, useState } from "react";
+
+import { useDispatch } from "react-redux";
+
+import { removeBook } from "../store/bookSlice";
+
 
 
 
@@ -17,21 +22,26 @@ function BrowseBook() {
   const Books = useSelector((store) => store.library.books);
 
 
+
+
   const [searchedTerm, setSearchedTerm] = useState('');
 
-  const filteredBooks = Books.filter(book => {
 
+  const filteredBooks = Books.filter(book => {
 
     const matchesSearch = book.title.toLowerCase().includes(searchedTerm.toLowerCase()) ||
 
       book.author.toLowerCase().includes(searchedTerm.toLowerCase());
 
-
     return matchesSearch;
-
 
   })
 
+
+
+
+
+const dispatch = useDispatch();
 
 
 
@@ -71,6 +81,9 @@ function BrowseBook() {
                   </Link>
 
                 </span>
+                
+                <br />
+                <button onClick={() => dispatch(removeBook(book.id))}>Delete</button>
 
               </div>
 
