@@ -10,16 +10,39 @@
 .header-logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: #4f46e5;
+
+  font-family: 'Segoe UI';
+
 }
 
 
-.header-link {
+.link {
 
   display: flex;
   gap: 25px;
 
 }
 
+
+.link-tab {
+
+  text-decoration: none;
+  color: #444;
+  font-family: 'Segoe UI';
+  font-weight: 500;
+
+  transition: all 0.3s;
+
+}
+
+.link-tab:hover {
+
+  color: #4F46E5;
+  
+  transform: scale(1.08);
+
+}
 
 
 

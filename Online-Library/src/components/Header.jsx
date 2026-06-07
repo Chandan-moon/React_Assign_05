@@ -12,13 +12,13 @@ import { addBook, removeBook } from "../store/bookSlice";
 function Header() {
 
 
-const bookItems = useSelector((store) => store.library.books);  
+    const bookItems = useSelector((store) => store.library.books);
 
 
-const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
 
-//  console.log(bookItems[0].title);
+    //  console.log(bookItems[0].title);
 
 
 
@@ -30,20 +30,18 @@ const dispatch = useDispatch();
         <div className="heading">
 
             <div className="header-logo">📚 Online Library</div>
-            <div className="header-link">
 
-                <Link to="/">
-                    <li>Home</li>
-                </Link>
-                <Link to="/cart">
-                    <li>Add Books</li>
-                </Link>
-                <Link to="/books/all">
-                    <li>BrowseBook</li>
-                </Link>
+            <div className="link">
 
-                 {/* <li>Cart{bookItems.length}</li> */}
-
+                <Link to="/"  className="link-tab">
+                    Home
+                </Link>
+                <Link to="/cart" className="link-tab">
+                    Add Books
+                </Link>
+                <Link to="/books/all" className="link-tab">
+                    BrowseBook
+                </Link>
 
             </div>
 
