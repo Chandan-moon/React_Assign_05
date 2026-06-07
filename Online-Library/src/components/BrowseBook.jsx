@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
+import { useState } from "react";
+
 
 
 
@@ -15,6 +17,23 @@ function BrowseBook() {
   const Books = useSelector((store) => store.library.books);
 
 
+  const [searchedTerm, setSearchedTerm] = useState('');
+
+  const filteredBooks = Books.filter(book => {
+
+
+    const matchesSearch = book.title.toLowerCase().includes(searchedTerm.toLowerCase()) ||
+
+      book.author.toLowerCase().includes(searchedTerm.toLowerCase());
+
+
+    return matchesSearch;
+
+
+  })
+
+
+
 
 
   return (
@@ -22,38 +41,48 @@ function BrowseBook() {
 
       <h1>Browse Books — all</h1>
 
-      <input type="text" placeholder="Search by author or title" />
+      <input type="text" placeholder="Search by author or title"
+
+        onChange={(e) => setSearchedTerm(e.target.value)}
+
+      />
 
 
-      <div className="booklist-card">
+      {
 
-        {
+        filteredBooks.length > 0 ? (
 
 
-          Books.map((book) => (
+          <div className="booklist-card">
 
-            <div className="book-card-browse" key={book.id}>
+            {filteredBooks.map((book) => (
 
-              <h2>{book.title}</h2>
-              <h4>{book.author}</h4>
-              <h3 className="card-cat">{book.category}</h3>
-              <p>{book.description.slice(0, 70)}</p>
-              {/* <h2></h2> */}
-              <span>
+              <div className="book-card-browse" key={book.id}>
 
-                <Link to={`/book/${book.id}`} key={book.id} className="view-more">
-                  View More
-                </Link>
+                <h2>{book.title}</h2>
+                <h4>{book.author}</h4>
+                <h3 className="card-cat">{book.category}</h3>
+                <p>{book.description.slice(0, 70)}</p>
 
-              </span>
+                <span>
 
-            </div>
+                  <Link to={`/book/${book.id}`} key={book.id} className="view-more">
+                    View More
+                  </Link>
 
-          ))
+                </span>
 
-        }
+              </div>
 
-      </div>
+            ))}
+
+          </div>
+
+
+        ) : (<p className="no-results">No books found matching your criteria.</p>)
+
+
+      }
 
 
 
@@ -64,3 +93,10 @@ function BrowseBook() {
 
 
 export default BrowseBook
+
+
+
+
+
+
+
